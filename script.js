@@ -109,6 +109,22 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+
+    // スキルバーのアニメーション
+    const skillProgressBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target;
+                const width = progressBar.getAttribute('data-width');
+                progressBar.style.width = width;
+            }
+        });
+    }, observerOptions);
+    
+    skillProgressBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
 });
 
 // ページロード時のアニメーション
