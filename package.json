@@ -1,0 +1,34 @@
+{
+  "name": "test-mcp-server",
+  "version": "1.0.0",
+  "description": "シンプルなポートフォリオサイト",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "open test.html",
+    "dev": "python -m http.server 3000",
+    "build": "echo 'This is a static site, no build process needed'",
+    "lint": "echo 'Linting HTML, CSS, and JS files'",
+    "deploy": "gh-pages -d ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rea-jin/test-mcp-server.git"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "html",
+    "css",
+    "javascript",
+    "responsive"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rea-jin/test-mcp-server/issues"
+  },
+  "homepage": "https://github.com/rea-jin/test-mcp-server#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}

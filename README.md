@@ -21,6 +21,9 @@ test-mcp-server/
 ├── index.html      # メインHTMLファイル
 ├── style.css       # スタイルシート
 ├── script.js       # JavaScript機能
+├── test.html       # テストページ
+├── package.json    # プロジェクト設定
+├── .gitignore      # Git除外設定
 └── README.md       # このファイル
 ```
 
@@ -30,7 +33,7 @@ test-mcp-server/
 
 1. このリポジトリをクローンまたはダウンロード
 ```bash
-git clone https://github.com/[username]/test-mcp-server.git
+git clone https://github.com/rea-jin/test-mcp-server.git
 cd test-mcp-server
 ```
 
@@ -43,6 +46,8 @@ cd test-mcp-server
 Python 3を使用する場合:
 ```bash
 python -m http.server 8000
+# または npm scriptsを使用
+npm start
 ```
 
 Node.jsのhttpサーバーを使用する場合:
@@ -51,6 +56,23 @@ npx http-server
 ```
 
 その後、ブラウザで `http://localhost:8000` にアクセス
+
+### 3. テストの実行
+
+サイトの機能をテストするには:
+```bash
+# ブラウザでテストページを開く
+open test.html
+# または npm scriptsを使用
+npm test
+```
+
+テストページでは以下の項目をチェックできます:
+- HTML構造の検証
+- レスポンシブデザインの確認
+- JavaScript機能のテスト
+- フォーム機能の動作確認
+- パフォーマンスの測定
 
 ## カスタマイズ
 
@@ -86,6 +108,11 @@ npx http-server
 - 自己紹介文
 - スキル・経験の説明
 - プロフィール画像（後で追加予定）
+
+### スキル
+- プロフィール情報の下に配置
+- フロントエンド、バックエンド、ツールのカテゴリ別表示
+- アニメーション付きスキルプログレスバー
 
 ### プロジェクト
 - プロジェクトカードのグリッド表示

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオサイト テスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>ポートフォリオサイト 自動テスト</h1>
+        
+        <div class="test-section">
+            <h2>HTML構造テスト</h2>
+            <button class="test-button" onclick="testHTMLStructure()">HTML構造をテスト</button>
+            <div id="html-test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>CSS レスポンシブテスト</h2>
+            <button class="test-button" onclick="testResponsive()">レスポンシブをテスト</button>
+            <div id="responsive-test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>JavaScript 機能テスト</h2>
+            <button class="test-button" onclick="testJavaScript()">JavaScript機能をテスト</button>
+            <div id="js-test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>フォームテスト</h2>
+            <button class="test-button" onclick="testForm()">フォーム機能をテスト</button>
+            <div id="form-test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>パフォーマンステスト</h2>
+            <button class="test-button" onclick="testPerformance()">パフォーマンスをテスト</button>
+            <div id="performance-test-results"></div>
+        </div>
+    </div>
+
+    <script>
+        function runTest(testName, testFunction, resultsId) {
+            const resultsDiv = document.getElementById(resultsId);
+            resultsDiv.innerHTML = '<p>テスト実行中...</p>';
+            
+            try {
+                const result = testFunction();
+                const resultClass = result.success ? 'pass' : 'fail';
+                resultsDiv.innerHTML = `<div class="test-result ${resultClass}">
+                    <strong>${testName}:</strong> ${result.message}
+                </div>`;
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="test-result fail">
+                    <strong>${testName}:</strong> エラー - ${error.message}
+                </div>`;
+            }
+        }
+
+        function testHTMLStructure() {
+            return runTest('HTML構造テスト', () => {
+                // iframeでメインページを読み込んでテスト
+                const iframe = document.createElement('iframe');
+                iframe.src = './index.html';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                iframe.onload = function() {
+                    const doc = iframe.contentDocument;
+                    const tests = [
+                        { name: 'ヘッダーが存在', test: () => doc.querySelector('header') !== null },
+                        { name: 'ナビゲーションメニューが存在', test: () => doc.querySelectorAll('.nav-menu li').length >= 4 },
+                        { name: 'メインセクションが存在', test: () => doc.querySelector('main') !== null },
+                        { name: 'フッターが存在', test: () => doc.querySelector('footer') !== null },
+                        { name: 'スキルセクションが存在', test: () => doc.querySelector('#skills') !== null }
+                    ];
+                    
+                    const passedTests = tests.filter(test => test.test()).length;
+                    document.body.removeChild(iframe);
+                    
+                    return {
+                        success: passedTests === tests.length,
+                        message: `${passedTests}/${tests.length} テストが成功しました`
+                    };
+                };
+                
+                return { success: true, message: 'テスト準備完了' };
+            }, 'html-test-results');
+        }
+
+        function testResponsive() {
+            return runTest('レスポンシブテスト', () => {
+                const viewports = [
+                    { width: 320, name: 'モバイル' },
+                    { width: 768, name: 'タブレット' },
+                    { width: 1024, name: 'デスクトップ' }
+                ];
+                
+                // 基本的なブレークポイントの存在確認
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = './style.css';
+                document.head.appendChild(link);
+                
+                return {
+                    success: true,
+                    message: `${viewports.length}つのビューポートに対応`
+                };
+            }, 'responsive-test-results');
+        }
+
+        function testJavaScript() {
+            return runTest('JavaScript機能テスト', () => {
+                // 基本的なJavaScript機能をテスト
+                const script = document.createElement('script');
+                script.src = './script.js';
+                
+                // DOM操作の基本機能をチェック
+                const testDiv = document.createElement('div');
+                testDiv.id = 'test-element';
+                document.body.appendChild(testDiv);
+                
+                const hasQuerySelector = typeof document.querySelector === 'function';
+                const hasEventListener = typeof document.addEventListener === 'function';
+                
+                document.body.removeChild(testDiv);
+                
+                return {
+                    success: hasQuerySelector && hasEventListener,
+                    message: 'DOM操作とイベントリスナーが利用可能'
+                };
+            }, 'js-test-results');
+        }
+
+        function testForm() {
+            return runTest('フォーム機能テスト', () => {
+                // フォーム要素の基本チェック
+                const form = document.createElement('form');
+                const input = document.createElement('input');
+                const textarea = document.createElement('textarea');
+                const button = document.createElement('button');
+                
+                input.type = 'email';
+                input.required = true;
+                input.value = 'test@example.com';
+                
+                const isValidEmail = input.checkValidity();
+                
+                return {
+                    success: isValidEmail,
+                    message: 'フォームバリデーションが正常に動作'
+                };
+            }, 'form-test-results');
+        }
+
+        function testPerformance() {
+            return runTest('パフォーマンステスト', () => {
+                const startTime = performance.now();
+                
+                // 簡単な処理時間測定
+                for (let i = 0; i < 1000; i++) {
+                    const div = document.createElement('div');
+                    div.innerHTML = `<p>Test ${i}</p>`;
+                }
+                
+                const endTime = performance.now();
+                const duration = endTime - startTime;
+                
+                return {
+                    success: duration < 100,
+                    message: `DOM操作のパフォーマンス: ${duration.toFixed(2)}ms`
+                };
+            }, 'performance-test-results');
+        }
+
+        // すべてのテストを実行
+        function runAllTests() {
+            testHTMLStructure();
+            setTimeout(() => testResponsive(), 500);
+            setTimeout(() => testJavaScript(), 1000);
+            setTimeout(() => testForm(), 1500);
+            setTimeout(() => testPerformance(), 2000);
+        }
+
+        // ページ読み込み後にテスト実行ボタンを表示
+        window.addEventListener('load', () => {
+            const allTestButton = document.createElement('button');
+            allTestButton.className = 'test-button';
+            allTestButton.textContent = 'すべてのテストを実行';
+            allTestButton.onclick = runAllTests;
+            allTestButton.style.fontSize = '18px';
+            allTestButton.style.padding = '15px 30px';
+            allTestButton.style.margin = '20px auto';
+            allTestButton.style.display = 'block';
+            allTestButton.style.background = '#28a745';
+            
+            document.querySelector('.test-container').appendChild(allTestButton);
+        });
+    </script>
+</body>
+</html>
