@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオサイト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>My Portfolio</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">プロフィール</a></li>
+                <li><a href="#projects">プロジェクト</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>こんにちは、私は開発者です</h2>
+                <p>フロントエンドとバックエンドの開発を行っています</p>
+                <button class="cta-button">プロジェクトを見る</button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>プロフィール</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>私はWebアプリケーション開発を専門とする開発者です。</p>
+                        <p>HTML、CSS、JavaScript、React、Node.jsなどの技術を使用して、ユーザーにとって使いやすいアプリケーションを作成しています。</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- 画像は後から追加 -->
+                        <div class="placeholder-image">プロフィール画像</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>プロジェクト</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-image">プロジェクト1</div>
+                        </div>
+                        <h3>プロジェクト 1</h3>
+                        <p>説明文がここに入ります。</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-image">プロジェクト2</div>
+                        </div>
+                        <h3>プロジェクト 2</h3>
+                        <p>説明文がここに入ります。</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-image">プロジェクト3</div>
+                        </div>
+                        <h3>プロジェクト 3</h3>
+                        <p>説明文がここに入ります。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>お問い合わせ</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>お気軽にお問い合わせください。</p>
+                        <ul>
+                            <li>Email: example@email.com</li>
+                            <li>GitHub: github.com/username</li>
+                            <li>LinkedIn: linkedin.com/in/username</li>
+                        </ul>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">メッセージ</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">送信</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
