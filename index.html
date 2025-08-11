@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオサイト</title>
+    <meta name="description" content="Web開発者のポートフォリオサイト。HTML、CSS、JavaScript、React、Node.jsを使用したプロジェクトを紹介しています。">
+    <meta name="keywords" content="Web開発, ポートフォリオ, HTML, CSS, JavaScript, React, Node.js, フロントエンド, バックエンド">
+    <meta name="author" content="Your Name">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="ポートフォリオサイト - Web開発者">
+    <meta property="og:description" content="Web開発者のポートフォリオサイト。HTML、CSS、JavaScript、React、Node.jsを使用したプロジェクトを紹介しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rea-jin.github.io/test-mcp-server/">
+    <meta property="og:image" content="https://rea-jin.github.io/test-mcp-server/og-image.jpg">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ポートフォリオサイト - Web開発者">
+    <meta name="twitter:description" content="Web開発者のポートフォリオサイト。HTML、CSS、JavaScript、React、Node.jsを使用したプロジェクトを紹介しています。">
+    <meta name="twitter:image" content="https://rea-jin.github.io/test-mcp-server/og-image.jpg">
+    
+    <title>ポートフォリオサイト - Web開発者</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,6 +32,7 @@
             <ul class="nav-menu">
                 <li><a href="#home">ホーム</a></li>
                 <li><a href="#about">プロフィール</a></li>
+                <li><a href="#skills">スキル</a></li>
                 <li><a href="#projects">プロジェクト</a></li>
                 <li><a href="#contact">お問い合わせ</a></li>
             </ul>
@@ -41,6 +59,101 @@
                     <div class="about-image">
                         <!-- 画像は後から追加 -->
                         <div class="placeholder-image">プロフィール画像</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2>スキル</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>フロントエンド</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">HTML5</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5スキルレベル 90%">
+                                    <div class="skill-progress" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">CSS3</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3スキルレベル 85%">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScriptスキルレベル 80%">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">React</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Reactスキルレベル 75%">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>バックエンド</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="65%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MySQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">MongoDB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>ツール・その他</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Git</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Docker</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">AWS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="50%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Figma</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
