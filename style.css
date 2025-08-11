@@ -1,3 +1,31 @@
+/* CSS Variables for Design System */
+:root {
+    --primary-color: #007bff;
+    --primary-dark: #0056b3;
+    --secondary-color: #667eea;
+    --secondary-dark: #764ba2;
+    --text-color: #333;
+    --text-light: #666;
+    --background-light: #f8f9fa;
+    --white: #fff;
+    --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-medium: 0 5px 15px rgba(0,0,0,0.1);
+    --shadow-heavy: 0 8px 30px rgba(0,0,0,0.15);
+    --border-radius: 10px;
+    --border-radius-small: 5px;
+    --border-radius-large: 15px;
+    --transition: all 0.3s ease;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.3rem;
+    --font-size-normal: 1rem;
+    --font-size-large: 1.2rem;
+    --spacing-small: 1rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 3rem;
+    --container-max-width: 1200px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +35,12 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    scroll-behavior: smooth;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -20,23 +49,23 @@ body {
 header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-medium);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: var(--spacing-small) var(--spacing-medium);
 }
 
 .logo h1 {
-    color: #333;
+    color: var(--text-color);
     font-size: 1.5rem;
 }
 
